@@ -31,23 +31,13 @@
                   </div>
                 </div>
               </nav>
-            <p class="p-2">Hola, este es tu primer sitio en Django</p>
-            <ul class="list-group">
-                {% for pokemon in pokemons %}
-                <li class="list-group-item">
-                    <a href="{{pokemon.pk}}">{{ pokemon | capfirst }}</a>
-                </li>
-                {% endfor %}
+            <h3>Informacion del Entrenador</h3>
+            <ul>
+                <li>Nombre: {{ trainer.first_name }} </li>
+                <li>Apellido: {{ trainer.last_name }} </li>
+                <li>Nivel: {{ trainer.level }} </li>
+
             </ul>
-            <ul class="list-group">
-              <h3>Entrenadores</h3>
-              {% for trainer in trainer %}
-              <li class="list-group-item">
-                  <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
-                  <p>Nivel: {{trainer.level}}</p>
-              </li>
-              {% endfor %}
-          </ul>
         </div>
     </body>
 </html>
