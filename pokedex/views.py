@@ -7,16 +7,25 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    pokemons = Pokemon.objects.order_by('type')
-    trainers= Trainer.objects.all()
+    pokemons = Pokemon.objects.order_by('type') 
     template = loader.get_template('index.html')
     return HttpResponse(template.render({
         'pokemons': pokemons,
-        'trainer': trainers
         
         },
         
         request))
+    
+def trainers(request):
+    trainers= Trainer.objects.all()
+    template = loader.get_template('trainers.html')
+    return HttpResponse(template.render({
+        'trainers': trainers,
+        
+        },
+        
+        request))
+    
 
 def pokemon(request, pokemon_id):
     pokemon = Pokemon.objects.get(pk = pokemon_id)
@@ -33,6 +42,7 @@ def trainer_detail(request, trainer_id):
         'trainer': trainer
     }
     return HttpResponse(template.render(context, request))
+
 
 @login_required
 def add_pokemon(request):
