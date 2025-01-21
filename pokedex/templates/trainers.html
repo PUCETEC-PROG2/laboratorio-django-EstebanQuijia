@@ -2,10 +2,9 @@
 {% block tittle %}Entrenadores{% endblock tittle  %}
 {% block content %}
 
-
     <h3>Entrenadores</h3>
     <ul class="list-group">
-        {% for trainer in trainer %}
+        {% for trainer in trainers %}
         <li class="list-group-item">
             <a href="trainer/{{trainer.id}}">{{ trainer | capfirst }}</a>
         </li>
