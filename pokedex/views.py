@@ -103,7 +103,7 @@ def edit_trainer(request, trainer_id):
 
 @login_required
 def delete_trainer(request, trainer_id):
-    trainer = Pokemon.objects.get(pk = trainer_id)
+    trainer = Trainer.objects.get(pk = trainer_id)
     trainer.delete()
     return redirect('pokedex:index')
    

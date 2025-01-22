@@ -7,14 +7,14 @@
     {% endif %}
     <div class="row">
     
-        {% for pokemon in pokemon %}
+        {% for pokemon in pokemons %}
         <div class="col-sm-4">
             <div class="card" style="width: 80%;">
                 <img src="{{ pokemon.picture.url }}" class="card-img-top" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{ pokemon | capfirst }}</h5>
                   <p class="card-text">Altura: {{ pokemon.height }}</p>
-                  <a href="{{pokemon.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                  <a href="pokemon/{{pokemon.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                   {% if user.is_authenticated %}
                     <a href="edit_pokemon/{{pokemon.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
                     <a href="delete_pokemon/{{pokemon.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
@@ -25,37 +25,6 @@
         {% endfor %}
     </div>    
 
-
-    <h3>Entrenadores</h3>
-    {% if user.is_authenticated %}
-    <a href="{% url "pokedex:add_trainer" %}">Añadir Entrenador</a>
-    {% endif %}
-    <ul class="list-group">
-        {% for trainer in trainer %} 
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <!--<img src="{{ trainer.pictureT.url }}" class="card-img-top" alt="Card image cap">-->
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  
-                  <p>Nombre completo: {{trainer.first_name}} {{ trainer.last_name }}</p>
-                  <p>Fecha: {{trainer.birth_day}}</p>
-                  <p>Nivel: {{trainer.level}}</p>
-                  <a href="{{trainer.id}}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
-                  {% if user.is_authenticated %}
-                    <a href="edit_trainer/{{trainer.id}}" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></a>
-                    <a href="delete_trainer/{{trainer.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-        
-        
-        {% endfor %}
-    </ul>
 {% endblock content  %}
 
 

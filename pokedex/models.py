@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 
@@ -7,7 +8,7 @@ class Trainer(models.Model):
     last_name = models.CharField(max_length=30, null=False)
     birth_day = models.DateField()
     level = models.IntegerField(default=1)
-    #picture= models.ImageField(upload_to="trainer_images")
+    picture= models.ImageField(upload_to="trainer_images", null=True, blank=True)
     
 
     def __str__(self) -> str:
